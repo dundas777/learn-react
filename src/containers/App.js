@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Questions from '../components/Questions/Questions';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cockpit from '../components/Cockpit/Cockpit';
-
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'red' : 'green'};
-  color: white;
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-    color: ${props => props.alt ? 'blue' : 'darkblue'}
-  }
-`;
 
 class App extends Component {
 
@@ -58,13 +42,13 @@ class App extends Component {
     return state;
   }
 
-  componntDidMount() {
-    console.log('[App.js] componntDidMount');
-  }
+  // componentDidMount() {
+  //   console.log('[App.js] componentDidMount');
+  // }
 
-  componentWillMount() {
-    console.log('[App.js] componntWillMount');
-  }
+  // componentWillMount() {
+  //   console.log('[App.js] componntWillMount');
+  // }
 
   deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons];
