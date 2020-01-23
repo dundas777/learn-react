@@ -1,0 +1,43 @@
+.Question {
+    width: 60%;
+    margin: 16px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+}
+
+.NavigationButton {
+    background-color: lightgrey;
+    color: black;
+    font: inherit;
+    border: 1px solid darkgrey;
+    padding: 8px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.NavigationButton:Hover {
+    background-color: white;
+}
+
+.SubmitButton {
+    background-color: green;
+    color: white;
+    font: inherit;
+    border: 1px solid black;
+    padding: 8px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.SubmitButton:Hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+@media (min-width: 600px) {
+    .Question {
+        width: 550px;
+    }
+}
