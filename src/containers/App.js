@@ -23,6 +23,7 @@ class App extends Component {
     showPersons: false,
     showCockpit: true,
     changeCounter: 0,
+    authenticated: false,
     questions: [
       { id: 'ghjhj1', question: 'What is the difference between Map and Blah?', type: 'multichoice', answers: [
         { id: 'ans001', answerText: 'Map does this', correct: true },
@@ -92,6 +93,10 @@ class App extends Component {
     });
   }
 
+  loginHandler = () => {
+    this.setState({authenticated: true});
+  }
+
   togglePersonsHandler = () => {
     // const doesShow = this.state.showPersons;
     // this.setState({showPersons: !doesShow});
@@ -105,7 +110,9 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = <Persons persons={this.state.persons}
                    clicker={this.deletePersonHandler}
-                   changer={this.nameChangeHandler} />;
+                   changer={this.nameChangeHandler} 
+                   isAuthenticated={this.state.authenticated}
+                   />;
     }
 
     const questions = <Questions questions={this.state.questions} />
@@ -117,10 +124,12 @@ class App extends Component {
         }}>Remove Cockpit</button>
         { this.state.showCockpit ? (
             <Cockpit 
-            title={this.props.appTitle}
-            showPersons={this.state.showPersons} 
-            personsLength={this.state.persons.length}
-            clicker={this.togglePersonsHandler}/>
+              title={this.props.appTitle}
+              showPersons={this.state.showPersons} 
+              personsLength={this.state.persons.length}
+              clicker={this.togglePersonsHandler}
+              login={this.loginHandler}
+            />
         ) : null }
         {persons}
         {questions}

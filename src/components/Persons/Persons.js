@@ -47,6 +47,7 @@ class Persons extends PureComponent {
                     age={person.age}
                     key={person.id}
                     changer={(event) => this.props.changer(event, person.id)}
+                    isAuth={this.props.isAuthenticated}
                 />
             );
         });

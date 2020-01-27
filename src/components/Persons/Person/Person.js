@@ -5,6 +5,18 @@ import Aux from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
 
 class Person extends Component {
+
+    constructor(props) {
+        super(props);
+        this.inputElementRef = React.createRef();
+    }
+
+    componentDidMount() {
+        console.log('Person.js] componentDidMount');
+        // this.inputElement.focus();
+        this.inputElementRef.current.focus();
+    }
+
     render () {
         console.log('[Person.js] rendering...');
 
@@ -13,9 +25,16 @@ class Person extends Component {
 
         return (
             <Aux>
+                {this.props.isAuth ? <p>Authenticated</p> : <p>Please Log in</p>}
                 <p key="item1" onClick={this.props.clicker}>I'm {this.props.name} and my age is {this.props.age} years old</p>
                 <p key="item2">{this.props.children}</p>
-                <input key="item3" type="text" onChange={this.props.changer} value={this.props.name} />
+                <input 
+                    key="item3" 
+                    // ref={(inputEl) => {this.inputElement = inputEl}}
+                    ref={this.inputElementRef}
+                    type="text" 
+                    onChange={this.props.changer} 
+                    value={this.props.name} />
             </Aux>
         );
     }
